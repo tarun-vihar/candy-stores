@@ -22,14 +22,7 @@ ActiveRecord::Schema.define(version: 2021_07_16_191628) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string "item_name"
-    t.integer "price"
-    t.integer "shop_id"
-    t.integer "shelf_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+  
 
   create_table "shelves", force: :cascade do |t|
     t.string "shelf_name"
