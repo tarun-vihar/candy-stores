@@ -1,0 +1,50 @@
+
+
+<br>
+
+
+<div class="jumbotron">
+
+    <h2 class="display-4"><%= @shop.shop_name %></h2>
+   
+    <p class="lead"> Shelf Name = <b><%= @shelf.shelf_name %> </b></p>
+    <hr class="my-4">
+
+  <% if !@candies.blank? %>
+    <table class="table table-striped table-bordered table-hover">
+      <caption> Candy  Details for <b><%= @shelf.shelf_name %> </b</caption>
+      <thead class="table-dark">
+        <tr>
+          <th> S. No </th>
+          <th>Candy name</th>
+          <th>Flavor</th>
+          <th>Prize</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @candies.each_with_index do |candy, index| %>
+          <tr>
+            <td><%= index+1 %>
+            <td><%= candy.candy_name %></td>
+            <td><%= candy.price %></td>
+            <td><%= candy.flavour %></td>
+            <td><%= link_to 'Edit', edit_candy_path(candy) %></td>
+            <td><%= link_to 'Remove From Shelf ', remove_candy_path(:id => candy.id) , data: { confirm: 'Are you sure to remove candy from shelf ?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <h2> No Candies Found in   <%= @shelf.shelf_name %>
+    <br/>
+    <br/>
+  <% end %>
+  
+  <%= link_to 'Back to Shop Details', shelves_path(:id => @shelf.shop_id), class:'btn btn-dark' %> 
+   <%= link_to 'Home', shops_path, class:'btn btn-warning' %>
+
+</div>
+
+

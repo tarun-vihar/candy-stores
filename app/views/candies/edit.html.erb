@@ -1,0 +1,14 @@
+
+
+<div class="field form-group row">
+    <div class="col-sm-3">
+        <h2>Edit Candy Details</h2>
+    </div> 
+   
+    <div class="col-sm-3">   
+      <%= link_to 'Home', shops_path, class:'btn btn-warning' %>
+    </div> 
+</div>
+
+<br/>
+<%= render 'form', candy: @candy %>

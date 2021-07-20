@@ -1,0 +1,43 @@
+<%= form_with(model: shop) do |form| %>
+  <% if shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+        <% shop.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group row">
+      <div class="col-sm-2">
+          <%= form.label :shop_name %>
+      </div> 
+      <div class="col-sm-4">
+        <%= form.text_field :shop_name , class:"form-control", placeholder:"Enter Shop Name" %>
+      </div> 
+  </div>
+
+  <br/>
+
+  <div class="field form-group row">
+      <div class="col-sm-2">
+          <%= form.label :address %>
+      </div> 
+      <div class="col-sm-4">
+        <%= form.text_field :address, class:"form-control", placeholder:"Enter Shop Address" %>
+      </div>  
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary' %>
+    <%= link_to 'Back', shops_path, class:"btn btn-dark" %>
+  </div>
+<% end %>
+
+
+

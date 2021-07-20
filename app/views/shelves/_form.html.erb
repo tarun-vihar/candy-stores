@@ -1,0 +1,44 @@
+<br/>
+<%= form_with(model: shelf) do |form| %>
+  <% if shelf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shelf.errors.count, "error") %> prohibited this shelf from being saved:</h2>
+
+      <ul>
+        <% shelf.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field form-group row">
+    
+    <div class="col-sm-2">
+      <%= form.label :shelf_name %>
+    </div> 
+    <div class="col-sm-4">     
+       <%= form.text_field :shelf_name , class:"form-control", placeholder:"Enter Shelf Name" %>
+    </div>
+
+  </div>
+
+         
+          
+  <div class="field form-group row">
+    <div class="col-sm-6">
+          <%= form.number_field :shop_id , value: shelf.shop_id ? shelf.shop_id :  params[:id], :style => "display:none;" %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary' %>
+    <%= link_to 'Back', shelves_path(:id => shelf.shop_id ? shelf.shop_id :  params[:id]), class:"btn btn-dark" %>
+  </div>
+          
+
+  
+<% end %>

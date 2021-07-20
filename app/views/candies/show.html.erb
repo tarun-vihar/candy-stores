@@ -1,0 +1,29 @@
+
+
+<p>
+  <strong>Candy name:</strong>
+  <%= @candy.candy_name %>
+</p>
+
+<p>
+  <strong>Flavour:</strong>
+  <%= @candy.flavour %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @candy.price %>
+</p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @candy.shop_id %>
+</p>
+
+<p>
+  <strong>Shelf:</strong>
+  <%= @candy.shelf_id %>
+</p>
+
+<%= link_to 'Edit', edit_candy_path(@candy) %> |
+<%= link_to 'Back', candies_path %>

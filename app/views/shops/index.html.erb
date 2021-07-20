@@ -1,0 +1,38 @@
+
+<%= render 'header' %>
+
+<br/>
+
+<% if !@shops.blank? %>
+
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Shop name</th>
+          <th>Address</th>
+          <th>Shelves Count</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @shops.each do |shop| %>
+          <tr>
+            <td><%= shop.shop_name %></td>
+            <td><%= shop.address %></td>
+            <td><%= shop.shelves_count %></td>
+            <td><%= link_to 'Show Details', :controller => :shelves, :action=> :index , :id => shop.id %></td>
+            <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+            <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<% else %>
+          No Shops found
+<% end %>
+
+<br>
+
+
